@@ -25,6 +25,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Sim Time")
 	void UpdateSimTime(float DeltaTime);
 
+	UFUNCTION(BlueprintCallable, Category = "Sim Time")
+	void SetSimTime(float Time);
+
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Sim Time")
 	float SimTime;

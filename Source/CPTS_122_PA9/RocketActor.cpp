@@ -37,6 +37,11 @@ void ARocketActor::UpdateSimTime(float DeltaTime)
 	SimTime = SimTime + (DeltaTime * SpeedMultiplier);
 }
 
+void ARocketActor::SetSimTime(float Time)
+{
+	SimTime = Time;
+}
+
 // Called when the game starts or when spawned
 void ARocketActor::BeginPlay()
 {
