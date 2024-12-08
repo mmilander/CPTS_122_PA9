@@ -1,0 +1,15 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/charl/OneDrive - Washington State University (email.wsu.edu)/2024-2025 School Year/CPTS_122_PA9/Content/StarterContent/Architecture/Floor_400x400.uasset",
+				"C:/Users/charl/OneDrive - Washington State University (email.wsu.edu)/2024-2025 School Year/CPTS_122_PA9/Content/NewMap.umap",
+				"C:/Users/charl/OneDrive - Washington State University (email.wsu.edu)/2024-2025 School Year/CPTS_122_PA9/Content/Bp_RocketActor.uasset",
+				"C:/Users/charl/OneDrive - Washington State University (email.wsu.edu)/2024-2025 School Year/CPTS_122_PA9/Content/SimBlank/Blueprints/BP_SimPlayerController.uasset"
+			]
+		}
+	]
+}
