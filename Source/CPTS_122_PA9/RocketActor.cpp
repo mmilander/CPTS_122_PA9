@@ -37,6 +37,12 @@ void ARocketActor::UpdateSimTime(float DeltaTime)
 	SimTime = SimTime + (DeltaTime * SpeedMultiplier);
 }
 
+void ARocketActor::startSim() {
+
+	startFlag = true;
+}
+
+
 void ARocketActor::SetSimTime(float Time)
 {
 	SimTime = Time;
