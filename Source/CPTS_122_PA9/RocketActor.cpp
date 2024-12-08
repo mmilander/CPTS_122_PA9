@@ -52,7 +52,7 @@ void ARocketActor::SetSimTime(float Time)
 void ARocketActor::BeginPlay()
 {
 	Super::BeginPlay();
-
+	startFlag = false;
 	//SpawnRocket();
 
 	FString inputString;
@@ -76,27 +76,28 @@ void ARocketActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	Data* curData = nullptr;
-	
-	SimTime += DeltaTime;
+	if (startFlag == true) {
+		Data* curData = nullptr;
 
-	//this is a test
+		SimTime += DeltaTime;
 
-	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::SanitizeFloat(DeltaTime));
-	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::FromInt(SimTime));
-	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::FromInt((int)(SimTime * 100)));
+		//this is a test
 
-	
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::SanitizeFloat(DeltaTime));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::FromInt(SimTime));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::FromInt((int)(SimTime * 100)));
 
-	curData = FlightData.GetDataAtTime((int)(SimTime * 100));
 
-	if (curData != nullptr)
-	{
-		FRotator newRotation = FRotator(curData->getPitch(), curData->getRoll(), curData->getYaw());
 
-		this->SetActorRotation(newRotation);
+		curData = FlightData.GetDataAtTime((int)(SimTime * 100));
+
+		if (curData != nullptr)
+		{
+			FRotator newRotation = FRotator(curData->getPitch(), curData->getRoll(), curData->getYaw());
+
+			this->SetActorRotation(newRotation);
+		}
 	}
-
 
 	//FVector NewLocation = this->GetActorLocation();
 	//NewLocation += FVector(0.0f, 0.0f, 0.1f);
