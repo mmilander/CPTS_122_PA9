@@ -75,11 +75,13 @@ void List::LoadList(std::stringstream &inputStream)
 		float roll = 0.0; //T-20
 		float pitch = 0.0; //U-21
 		float yaw = 0.0; //V-22
+		float latitude = 0.0; //Col: 35
+		float longitude = 0.0; // Col: 36
 		getline(inputStream, line); //discard header line
 		//cout <<"time\nstateNum\nAccel\npressure\naltitude\nheight\nspeed\ntemp\nbattery\nxacc\nyacc\nzacc\nroll\npitch\nyaw\n\n";
 		while (getline(inputStream, line)) {
 			Data* read = new Data();
-			for (int i = 1; i <= 22; i++) {
+			for (int i = 1; i <= 36; i++) {
 				//cout << i << endl;
 				location = line.find(',');
 				switch (i) { // each number corresponds to letter of alphabet, which corresponds to column in CSV.
@@ -160,6 +162,16 @@ void List::LoadList(std::stringstream &inputStream)
 					//cout << read->yaw << ", ";
 					line = line.substr(location + 1, line.length());
 					break;
+				case 35:
+					read->setLatitude(stof(line.substr(0, location)));
+					//cout << read->yaw << ", ";
+					line = line.substr(location + 1, line.length());
+					break;
+				case 36:
+					read->setLongitude(stof(line.substr(0, location)));
+					//cout << read->yaw << ", ";
+					line = line.substr(location + 1, line.length());
+					break;
 				default:
 					line = line.substr(location + 1, line.length());
 					break;
@@ -168,6 +180,14 @@ void List::LoadList(std::stringstream &inputStream)
 			//cout << endl;
 			this->insert(read);
 		}
+}
+
+int List::getMaxTime() {
+	return getMaxTimeHelper(headPtr);
+}
+
+int List::getMaxTimeHelper(Node* hPtr) {
+	return hPtr->getData()->getTime();
 }
 
 void List::printListHelper(Node* hPtr) {
