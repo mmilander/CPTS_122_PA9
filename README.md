@@ -7,9 +7,10 @@ CPTS_122_PA9, December, 2024
 | Mitchell Milander | #4 |
 <br>
 
-|Program Description| 
-| ------------------|
-|  The *Ludwig 5000<sup>©</sup>* is a brand new, high powered rocketry simulation **built by engineers, for engineers!** 
+|Program Description| Program Setup | 
+| ------------------| ------------- |
+|  The *Ludwig 5000<sup>©</sup>* is a brand new, high powered rocketry simulation **built by engineers, for engineers!** | The application runs with the UnRreal Version 5.4.4 engine. Download the executable.|
+
 
 <br>
 
