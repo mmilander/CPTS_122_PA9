@@ -32,6 +32,11 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Sim Time")
 	float SpeedMultiplier;
 
+	UFUNCTION(BlueprintCallable, Category = "SPAWNING")
+	void startSim(); //boolean to begin game play
+
+	UPROPERTY(BlueprintReadWrite, Category = "SPAWNING")
+	bool startFlag = false;
 
 protected:
 	// Called when the game starts or when spawned

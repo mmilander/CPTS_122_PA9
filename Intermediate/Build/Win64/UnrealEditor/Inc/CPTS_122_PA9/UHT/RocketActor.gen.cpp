@@ -46,6 +46,36 @@ DEFINE_FUNCTION(ARocketActor::execSpawnRocket)
 }
 // End Class ARocketActor Function SpawnRocket
 
+// Begin Class ARocketActor Function startSim
+struct Z_Construct_UFunction_ARocketActor_startSim_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "SPAWNING" },
+		{ "ModuleRelativePath", "RocketActor.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ARocketActor_startSim_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARocketActor, nullptr, "startSim", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ARocketActor_startSim_Statics::Function_MetaDataParams), Z_Construct_UFunction_ARocketActor_startSim_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ARocketActor_startSim()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ARocketActor_startSim_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ARocketActor::execstartSim)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->startSim();
+	P_NATIVE_END;
+}
+// End Class ARocketActor Function startSim
+
 // Begin Class ARocketActor Function UpdateSimTime
 struct Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics
 {
@@ -95,6 +125,7 @@ void ARocketActor::StaticRegisterNativesARocketActor()
 	UClass* Class = ARocketActor::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "SpawnRocket", &ARocketActor::execSpawnRocket },
+		{ "startSim", &ARocketActor::execstartSim },
 		{ "UpdateSimTime", &ARocketActor::execUpdateSimTime },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -119,13 +150,26 @@ struct Z_Construct_UClass_ARocketActor_Statics
 		{ "Category", "Sim Time" },
 		{ "ModuleRelativePath", "RocketActor.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_startFlag_MetaData[] = {
+		{ "Category", "SPAWNING" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//boolean to begin game play\n" },
+#endif
+		{ "ModuleRelativePath", "RocketActor.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "boolean to begin game play" },
+#endif
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_SimTime;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_SpeedMultiplier;
+	static void NewProp_startFlag_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_startFlag;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ARocketActor_SpawnRocket, "SpawnRocket" }, // 254668992
+		{ &Z_Construct_UFunction_ARocketActor_startSim, "startSim" }, // 40173207
 		{ &Z_Construct_UFunction_ARocketActor_UpdateSimTime, "UpdateSimTime" }, // 2019372414
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -136,9 +180,15 @@ struct Z_Construct_UClass_ARocketActor_Statics
 };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARocketActor_Statics::NewProp_SimTime = { "SimTime", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ARocketActor, SimTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SimTime_MetaData), NewProp_SimTime_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARocketActor_Statics::NewProp_SpeedMultiplier = { "SpeedMultiplier", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ARocketActor, SpeedMultiplier), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SpeedMultiplier_MetaData), NewProp_SpeedMultiplier_MetaData) };
+void Z_Construct_UClass_ARocketActor_Statics::NewProp_startFlag_SetBit(void* Obj)
+{
+	((ARocketActor*)Obj)->startFlag = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARocketActor_Statics::NewProp_startFlag = { "startFlag", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ARocketActor), &Z_Construct_UClass_ARocketActor_Statics::NewProp_startFlag_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_startFlag_MetaData), NewProp_startFlag_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARocketActor_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARocketActor_Statics::NewProp_SimTime,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARocketActor_Statics::NewProp_SpeedMultiplier,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARocketActor_Statics::NewProp_startFlag,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ARocketActor_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ARocketActor_Statics::DependentSingletons[])() = {
@@ -178,14 +228,14 @@ ARocketActor::~ARocketActor() {}
 // End Class ARocketActor
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Users_charl_OneDrive___Washington_State_University__email_wsu_edu__2024_2025_School_Year_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_mmila_Desktop_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ARocketActor, ARocketActor::StaticClass, TEXT("ARocketActor"), &Z_Registration_Info_UClass_ARocketActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARocketActor), 4040200396U) },
+		{ Z_Construct_UClass_ARocketActor, ARocketActor::StaticClass, TEXT("ARocketActor"), &Z_Registration_Info_UClass_ARocketActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARocketActor), 1214646666U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_charl_OneDrive___Washington_State_University__email_wsu_edu__2024_2025_School_Year_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_3912554274(TEXT("/Script/CPTS_122_PA9"),
-	Z_CompiledInDeferFile_FID_Users_charl_OneDrive___Washington_State_University__email_wsu_edu__2024_2025_School_Year_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_charl_OneDrive___Washington_State_University__email_wsu_edu__2024_2025_School_Year_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mmila_Desktop_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_2282735723(TEXT("/Script/CPTS_122_PA9"),
+	Z_CompiledInDeferFile_FID_Users_mmila_Desktop_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mmila_Desktop_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration
