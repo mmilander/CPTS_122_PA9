@@ -41,6 +41,10 @@ void ARocketActor::startSim() {
 
 	startFlag = true;
 }
+void ARocketActor::SetSimTime(float Time)
+{
+	SimTime = Time;
+}
 
 // Called when the game starts or when spawned
 void ARocketActor::BeginPlay()
