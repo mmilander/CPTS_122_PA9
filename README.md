@@ -1,5 +1,5 @@
-December, 2024
-#  CPTS_122_PA9 *Ludwig 5000<sup>©</sup>*
+CPTS_122_PA9, December, 2024
+#   *The Ludwig 5000<sup>©</sup>*
 
 | Name | Lab Section |
 | ----------- | ----------- |
