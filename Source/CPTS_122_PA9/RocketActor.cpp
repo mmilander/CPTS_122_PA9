@@ -32,6 +32,11 @@ void ARocketActor::SpawnRocket()
 
 }
 
+void ARocketActor::UpdateSimTime(float DeltaTime)
+{
+	SimTime = SimTime + (DeltaTime * SpeedMultiplier);
+}
+
 // Called when the game starts or when spawned
 void ARocketActor::BeginPlay()
 {
@@ -76,7 +81,7 @@ void ARocketActor::Tick(float DeltaTime)
 
 	if (curData != nullptr)
 	{
-		FRotator newRotation = FRotator(curData->getPitch(), curData->getYaw(), curData->getRoll());
+		FRotator newRotation = FRotator(curData->getPitch(), curData->getRoll(), curData->getYaw());
 
 		this->SetActorRotation(newRotation);
 	}

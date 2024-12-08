@@ -15,6 +15,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define CPTS_122_PA9_RocketActor_generated_h
 
 #define FID_Users_charl_OneDrive___Washington_State_University__email_wsu_edu__2024_2025_School_Year_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execUpdateSimTime); \
 	DECLARE_FUNCTION(execSpawnRocket);
 
 

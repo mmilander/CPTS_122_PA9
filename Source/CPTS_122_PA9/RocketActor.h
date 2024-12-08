@@ -22,9 +22,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "SPAWNING")
 	void SpawnRocket();
 
-	List FlightData;
+	UFUNCTION(BlueprintCallable, Category = "Sim Time")
+	void UpdateSimTime(float DeltaTime);
 
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Sim Time")
 	float SimTime;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Sim Time")
+	float SpeedMultiplier;
+
 
 protected:
 	// Called when the game starts or when spawned
@@ -34,4 +41,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+private:
+
+	List FlightData;
 };

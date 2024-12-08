@@ -46,12 +46,56 @@ DEFINE_FUNCTION(ARocketActor::execSpawnRocket)
 }
 // End Class ARocketActor Function SpawnRocket
 
+// Begin Class ARocketActor Function UpdateSimTime
+struct Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics
+{
+	struct RocketActor_eventUpdateSimTime_Parms
+	{
+		float DeltaTime;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Sim Time" },
+		{ "ModuleRelativePath", "RocketActor.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_DeltaTime;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::NewProp_DeltaTime = { "DeltaTime", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(RocketActor_eventUpdateSimTime_Parms, DeltaTime), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::NewProp_DeltaTime,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARocketActor, nullptr, "UpdateSimTime", nullptr, nullptr, Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::PropPointers), sizeof(Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::RocketActor_eventUpdateSimTime_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::Function_MetaDataParams), Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::RocketActor_eventUpdateSimTime_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ARocketActor_UpdateSimTime()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ARocketActor::execUpdateSimTime)
+{
+	P_GET_PROPERTY(FFloatProperty,Z_Param_DeltaTime);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->UpdateSimTime(Z_Param_DeltaTime);
+	P_NATIVE_END;
+}
+// End Class ARocketActor Function UpdateSimTime
+
 // Begin Class ARocketActor
 void ARocketActor::StaticRegisterNativesARocketActor()
 {
 	UClass* Class = ARocketActor::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "SpawnRocket", &ARocketActor::execSpawnRocket },
+		{ "UpdateSimTime", &ARocketActor::execUpdateSimTime },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -67,10 +111,22 @@ struct Z_Construct_UClass_ARocketActor_Statics
 		{ "IncludePath", "RocketActor.h" },
 		{ "ModuleRelativePath", "RocketActor.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SimTime_MetaData[] = {
+		{ "Category", "Sim Time" },
+		{ "ModuleRelativePath", "RocketActor.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SpeedMultiplier_MetaData[] = {
+		{ "Category", "Sim Time" },
+		{ "ModuleRelativePath", "RocketActor.h" },
+	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_SimTime;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_SpeedMultiplier;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ARocketActor_SpawnRocket, "SpawnRocket" }, // 254668992
+		{ &Z_Construct_UFunction_ARocketActor_UpdateSimTime, "UpdateSimTime" }, // 2019372414
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -78,6 +134,13 @@ struct Z_Construct_UClass_ARocketActor_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARocketActor_Statics::NewProp_SimTime = { "SimTime", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ARocketActor, SimTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SimTime_MetaData), NewProp_SimTime_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARocketActor_Statics::NewProp_SpeedMultiplier = { "SpeedMultiplier", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ARocketActor, SpeedMultiplier), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SpeedMultiplier_MetaData), NewProp_SpeedMultiplier_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARocketActor_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARocketActor_Statics::NewProp_SimTime,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARocketActor_Statics::NewProp_SpeedMultiplier,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ARocketActor_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ARocketActor_Statics::DependentSingletons[])() = {
 	(UObject* (*)())Z_Construct_UClass_AActor,
 	(UObject* (*)())Z_Construct_UPackage__Script_CPTS_122_PA9,
@@ -89,11 +152,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_ARocketActor_Statics::C
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	FuncInfo,
-	nullptr,
+	Z_Construct_UClass_ARocketActor_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
 	UE_ARRAY_COUNT(FuncInfo),
-	0,
+	UE_ARRAY_COUNT(Z_Construct_UClass_ARocketActor_Statics::PropPointers),
 	0,
 	0x009000A4u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ARocketActor_Statics::Class_MetaDataParams), Z_Construct_UClass_ARocketActor_Statics::Class_MetaDataParams)
@@ -118,10 +181,10 @@ ARocketActor::~ARocketActor() {}
 struct Z_CompiledInDeferFile_FID_Users_charl_OneDrive___Washington_State_University__email_wsu_edu__2024_2025_School_Year_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ARocketActor, ARocketActor::StaticClass, TEXT("ARocketActor"), &Z_Registration_Info_UClass_ARocketActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARocketActor), 4032357527U) },
+		{ Z_Construct_UClass_ARocketActor, ARocketActor::StaticClass, TEXT("ARocketActor"), &Z_Registration_Info_UClass_ARocketActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARocketActor), 4040200396U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_charl_OneDrive___Washington_State_University__email_wsu_edu__2024_2025_School_Year_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_1679402501(TEXT("/Script/CPTS_122_PA9"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_charl_OneDrive___Washington_State_University__email_wsu_edu__2024_2025_School_Year_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_3912554274(TEXT("/Script/CPTS_122_PA9"),
 	Z_CompiledInDeferFile_FID_Users_charl_OneDrive___Washington_State_University__email_wsu_edu__2024_2025_School_Year_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_charl_OneDrive___Washington_State_University__email_wsu_edu__2024_2025_School_Year_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
