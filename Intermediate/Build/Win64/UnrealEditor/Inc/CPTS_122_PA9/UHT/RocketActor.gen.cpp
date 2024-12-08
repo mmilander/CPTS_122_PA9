@@ -119,6 +119,36 @@ DEFINE_FUNCTION(ARocketActor::execstartSim)
 }
 // End Class ARocketActor Function startSim
 
+// Begin Class ARocketActor Function UpdatePosAndRotation
+struct Z_Construct_UFunction_ARocketActor_UpdatePosAndRotation_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Sim Time" },
+		{ "ModuleRelativePath", "RocketActor.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ARocketActor_UpdatePosAndRotation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARocketActor, nullptr, "UpdatePosAndRotation", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ARocketActor_UpdatePosAndRotation_Statics::Function_MetaDataParams), Z_Construct_UFunction_ARocketActor_UpdatePosAndRotation_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ARocketActor_UpdatePosAndRotation()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ARocketActor_UpdatePosAndRotation_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ARocketActor::execUpdatePosAndRotation)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->UpdatePosAndRotation();
+	P_NATIVE_END;
+}
+// End Class ARocketActor Function UpdatePosAndRotation
+
 // Begin Class ARocketActor Function UpdateSimTime
 struct Z_Construct_UFunction_ARocketActor_UpdateSimTime_Statics
 {
@@ -170,6 +200,7 @@ void ARocketActor::StaticRegisterNativesARocketActor()
 		{ "SetSimTime", &ARocketActor::execSetSimTime },
 		{ "SpawnRocket", &ARocketActor::execSpawnRocket },
 		{ "startSim", &ARocketActor::execstartSim },
+		{ "UpdatePosAndRotation", &ARocketActor::execUpdatePosAndRotation },
 		{ "UpdateSimTime", &ARocketActor::execUpdateSimTime },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -204,17 +235,23 @@ struct Z_Construct_UClass_ARocketActor_Statics
 		{ "ToolTip", "boolean to begin game play" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_maxTime_MetaData[] = {
+		{ "Category", "SPAWNING" },
+		{ "ModuleRelativePath", "RocketActor.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_SimTime;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_SpeedMultiplier;
 	static void NewProp_startFlag_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_startFlag;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_maxTime;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ARocketActor_SetSimTime, "SetSimTime" }, // 1767094185
 		{ &Z_Construct_UFunction_ARocketActor_SpawnRocket, "SpawnRocket" }, // 254668992
 		{ &Z_Construct_UFunction_ARocketActor_startSim, "startSim" }, // 40173207
+		{ &Z_Construct_UFunction_ARocketActor_UpdatePosAndRotation, "UpdatePosAndRotation" }, // 2928799123
 		{ &Z_Construct_UFunction_ARocketActor_UpdateSimTime, "UpdateSimTime" }, // 2019372414
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -230,10 +267,12 @@ void Z_Construct_UClass_ARocketActor_Statics::NewProp_startFlag_SetBit(void* Obj
 	((ARocketActor*)Obj)->startFlag = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARocketActor_Statics::NewProp_startFlag = { "startFlag", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ARocketActor), &Z_Construct_UClass_ARocketActor_Statics::NewProp_startFlag_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_startFlag_MetaData), NewProp_startFlag_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ARocketActor_Statics::NewProp_maxTime = { "maxTime", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ARocketActor, maxTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_maxTime_MetaData), NewProp_maxTime_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARocketActor_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARocketActor_Statics::NewProp_SimTime,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARocketActor_Statics::NewProp_SpeedMultiplier,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARocketActor_Statics::NewProp_startFlag,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARocketActor_Statics::NewProp_maxTime,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ARocketActor_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ARocketActor_Statics::DependentSingletons[])() = {
@@ -273,14 +312,14 @@ ARocketActor::~ARocketActor() {}
 // End Class ARocketActor
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Users_mmila_Desktop_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_charl_source_repos_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ARocketActor, ARocketActor::StaticClass, TEXT("ARocketActor"), &Z_Registration_Info_UClass_ARocketActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARocketActor), 1247455424U) },
+		{ Z_Construct_UClass_ARocketActor, ARocketActor::StaticClass, TEXT("ARocketActor"), &Z_Registration_Info_UClass_ARocketActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARocketActor), 95942344U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mmila_Desktop_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_1418003208(TEXT("/Script/CPTS_122_PA9"),
-	Z_CompiledInDeferFile_FID_Users_mmila_Desktop_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mmila_Desktop_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_charl_source_repos_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_3166394830(TEXT("/Script/CPTS_122_PA9"),
+	Z_CompiledInDeferFile_FID_Users_charl_source_repos_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_charl_source_repos_CPTS_122_PA9_Source_CPTS_122_PA9_RocketActor_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

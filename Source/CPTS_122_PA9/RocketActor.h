@@ -28,6 +28,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Sim Time")
 	void SetSimTime(float Time);
 
+	UFUNCTION(BlueprintCallable, Category = "Sim Time")
+	void UpdatePosAndRotation();
+
+
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Sim Time")
 	float SimTime;
@@ -40,6 +44,11 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, Category = "SPAWNING")
 	bool startFlag = false;
+
+	UPROPERTY(BlueprintReadWrite, Category = "SPAWNING")
+	int maxTime;
+
+
 
 protected:
 	// Called when the game starts or when spawned
