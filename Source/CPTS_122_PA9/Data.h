@@ -34,6 +34,9 @@ private:
 	float roll; //T
 	float pitch; //U
 	float yaw; //V
+	float latitude;
+	float longitude;
+
 public:
 	Data();
 	void setState(int var);
@@ -51,6 +54,8 @@ public:
 	void setRoll(float var);
 	void setPitch(float var);
 	void setYaw(float var);
+	void setLatitude(float var);
+	void setLongitude(float var);
 
 	int getState();
 	float getTime();
@@ -67,7 +72,8 @@ public:
 	float getRoll();
 	float getPitch();
 	float getYaw();
-
+	float getLatitude();
+	float getLongitude();
 
 
 

@@ -64,6 +64,12 @@ void Data::setPitch(float var) {
 void Data::setYaw(float var) {
 	yaw = var;
 }
+void Data::setLatitude(float var) {
+	latitude = var;
+}
+void Data::setLongitude(float var) {
+	longitude = var;
+}
 
 int Data::getState() {
 	return  stateNum;
@@ -109,4 +115,10 @@ float Data::getPitch() {
 }
 float Data::getYaw() {
 	return yaw;
+}
+float Data::getLatitude() {
+	return latitude;
+}
+float Data::getLongitude() {
+	return longitude;
 }

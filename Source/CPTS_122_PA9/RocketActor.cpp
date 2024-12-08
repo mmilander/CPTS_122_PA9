@@ -86,6 +86,7 @@ void ARocketActor::BeginPlay()
 	SimTime = 0;
 	SpeedMultiplier = 1;
 	FlightData.LoadList(inputStream);
+	maxTime = FlightData.getMaxTime()/100;
 }
 
 // Called every frame

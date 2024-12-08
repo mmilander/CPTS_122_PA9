@@ -1,12 +1,14 @@
 #pragma once
 #include "Node.h"
 #include <sstream>
+#include <iostream>
 
 
 class List
 {
 private:
 	void printListHelper(Node* hPtr);
+	int getMaxTimeHelper(Node* hPtr);
 	Node* headPtr;
 public:
 	List();
@@ -15,5 +17,6 @@ public:
 	void printList();
 	Data* GetDataAtTime(int time);
 	void LoadList(std::stringstream &inputStream);
+	int getMaxTime();
 };
 
