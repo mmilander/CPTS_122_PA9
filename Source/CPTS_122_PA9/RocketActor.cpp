@@ -178,9 +178,9 @@ void ARocketActor::Tick(float DeltaTime)
 
 	if (startFlag == true) {
 
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::SanitizeFloat(DeltaTime));
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::FromInt(SimTime));
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::FromInt((int)(SimTime * 100)));
+		//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::SanitizeFloat(DeltaTime));
+		//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::FromInt(SimTime));
+		//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::FromInt((int)(SimTime * 100)));
 
 		UpdateSimTime(DeltaTime);
 		UpdatePosAndRotation();
