@@ -18,7 +18,7 @@ CPTS_122_PA9, December, 2024
 
 | Design Decision | 
 | ------------------| 
-| The Unreal Engine uses inheritance and polymorphism. Because our final implementation required only one rocket object to simulate Palouse Aerospace Club's rocket flights, there was no apparent need for polymorphism. |
+| While the Unreal Engine itself uses inheritance and polymorphism the code we wrote for the project does not use it. Because our final implementation required only one rocket object to simulate Palouse Aerospace Club's rocket flights, there was no apparent need for polymorphism. |
 
 <br>
 
