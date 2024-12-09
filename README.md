@@ -9,7 +9,7 @@ CPTS_122_PA9, December, 2024
 
 |Program Description| Program Setup | 
 | ------------------| ------------- |
-|  The *Ludwig 5000<sup>©</sup>* is a brand new, high powered rocketry simulation **built by engineers, for engineers!** | The application runs with the Unreal Version 5.4.4 engine. Download the executable.|
+|  The *Ludwig 5000<sup>©</sup>* is a brand new, high powered rocketry simulation **built by engineers, for engineers!** | The application runs with Unreal Engine Version 5.4.4. Download the executable.|
 
 
 <br>
