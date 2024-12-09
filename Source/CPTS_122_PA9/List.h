@@ -18,5 +18,6 @@ public:
 	Data* GetDataAtTime(int time);
 	void LoadList(std::stringstream &inputStream);
 	int getMaxTime();
+	Node* getHead();
 };
 

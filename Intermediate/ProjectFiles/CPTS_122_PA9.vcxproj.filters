@@ -66,6 +66,9 @@
     <ClInclude Include="..\..\Source\CPTS_122_PA9\Data.h">
       <Filter>Source\CPTS_122_PA9</Filter>
     </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>Source\CPTS_122_PA9</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\CPTS_122_PA9\List.cpp">
@@ -75,6 +78,9 @@
       <Filter>Source\CPTS_122_PA9</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\CPTS_122_PA9\Node.cpp">
+      <Filter>Source\CPTS_122_PA9</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
       <Filter>Source\CPTS_122_PA9</Filter>
     </ClCompile>
   </ItemGroup>

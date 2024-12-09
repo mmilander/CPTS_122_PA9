@@ -212,3 +212,6 @@ void List::printListHelper(Node* hPtr) {
 		cout << endl;
 	}
 }
+Node* List::getHead() {
+	return headPtr;
+}
