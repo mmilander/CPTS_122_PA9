@@ -187,7 +187,11 @@ int List::getMaxTime() {
 }
 
 int List::getMaxTimeHelper(Node* hPtr) {
-	return hPtr->getData()->getTime();
+	if (hPtr != nullptr)
+	{
+		return hPtr->getData()->getTime();
+	}
+	return 0;
 }
 
 void List::printListHelper(Node* hPtr) {

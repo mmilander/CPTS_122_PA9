@@ -156,7 +156,7 @@ void ARocketActor::BeginPlay()
 
 	FString inputString;
 
-	FString FilePath = FPaths::ProjectContentDir() + TEXT("2023-04-16FULL.csv");
+	FString FilePath = FPaths::ProjectContentDir() + TEXT("FlightData.csv");
 
 
 	FFileHelper::LoadFileToString(inputString, *FilePath);
