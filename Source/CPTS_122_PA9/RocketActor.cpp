@@ -101,9 +101,12 @@ void ARocketActor::ComputeGlobalPos()
 			DeltaTime = ((float)curTime - (float)prevTime) / 100;
 			prevTime = curTime;
 
-			velX = velX + curData->getGlobalxAcceleration() * DeltaTime;
+			velX = velX + (curData->getGlobalxAcceleration() - 9.81) * DeltaTime;
 			velY = velY + curData->getGlobalyAcceleration() * DeltaTime;
 			velZ = velZ + curData->getGlobalzAcceleration() * DeltaTime;
+
+			//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::SanitizeFloat(velX));
+
 
 			posX = posX + velX * DeltaTime;
 			posY = posY + velY * DeltaTime;
@@ -133,8 +136,8 @@ void ARocketActor::UpdatePosAndRotation()
 
 	if (curData != nullptr)
 	{
-		FRotator newRotation = FRotator(curData->getPitch(), curData->getRoll(), curData->getYaw()); //Pitch, Yaw, Roll, roll and yaw are swapped because of the orientation of the rocket
-		FVector newPos = FVector(curData->getGlobalzPosition() * 100, curData->getGlobalyPosition() * 100, curData->getGlobalxPosition() * 100);
+		FRotator newRotation = FRotator(- curData->getPitch(), curData->getRoll(), curData->getYaw()); //Pitch, Yaw, Roll, roll and yaw are swapped because of the orientation of the rocket
+		FVector newPos = FVector(curData->getGlobalzPosition() * 100, - curData->getGlobalyPosition() * 100, curData->getGlobalxPosition() * 100);
 
 
 		this->SetActorRotation(newRotation);
