@@ -1,5 +1,5 @@
 CPTS_122_PA9, December, 2024
-#   *The Ludwig 5000<sup>©</sup>*
+#   *Flight Data Playbak Simulator 5000<sup>©</sup>*
 
 | Name | Lab Section |
 | ----------- | ----------- |
@@ -9,7 +9,7 @@ CPTS_122_PA9, December, 2024
 
 |Program Description| Program Setup | 
 | ------------------| ------------- |
-|  The *Ludwig 5000<sup>©</sup>* is a brand new, high powered rocketry simulation **built by engineers, for engineers!** | The application runs with Unreal Engine Version 5.4.4. Download the executable.|
+|  The *Flight Data Playbak Simulator 5000<sup>©</sup>* is a brand new, high powered rocketry simulation **built by engineers, for engineers!** | The application runs with Unreal Engine Version 5.4.4. Download the executable.|
 
 
 <br>
