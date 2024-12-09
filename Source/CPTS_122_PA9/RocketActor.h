@@ -42,6 +42,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "SPAWNING")
 	void startSim(); //boolean to begin game play
 
+	void TransformAccelerationData();
+
+	FVector ConvertToGlobal(const FVector& LocalCoords, const FRotator& Rotator);
+
+	void ComputeGlobalPos();
+
 	UPROPERTY(BlueprintReadWrite, Category = "SPAWNING")
 	bool startFlag = false;
 
