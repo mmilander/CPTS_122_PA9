@@ -42,6 +42,83 @@ void ARocketActor::startSim() {
 	startFlag = true;
 }
 
+void ARocketActor::TransformAccelerationData()
+{
+	int myMaxTime = FlightData.getMaxTime(), time = 0;
+	Data* curData = nullptr;
+	FVector GlobalAcceleration;
+
+	while (time <= myMaxTime)
+	{
+		curData = FlightData.GetDataAtTime(time);
+
+		if (curData != nullptr)
+		{
+			GlobalAcceleration = ConvertToGlobal(FVector(curData->getXAcceleration(), curData->getYAcceleration(), curData->getZAcceleration()),
+				FRotator(curData->getPitch(), curData->getYaw(), curData->getRoll()));
+			curData->setGlobalxAcceleration(GlobalAcceleration.X);
+			curData->setGlobalyAcceleration(GlobalAcceleration.Y);
+			curData->setGlobalzAcceleration(GlobalAcceleration.Z);
+		}
+		curData = nullptr;
+		++time;
+	}
+}
+
+FVector ARocketActor::ConvertToGlobal(const FVector& LocalCoords, const FRotator& Rotator)
+{
+	FQuat Quat(Rotator);
+
+	FVector GlobalCoords = Quat.RotateVector(LocalCoords);
+
+	return GlobalCoords;
+}
+
+void ARocketActor::ComputeGlobalPos()
+{
+	float posX = 0, posY = 0, posZ = 0,
+		velX = 0, velY = 0, velZ = 0;
+	int curTime = 0, prevTime = 0, myMaxTime = FlightData.getMaxTime();
+	float DeltaTime;
+	Data* curData = nullptr;
+
+	curData = FlightData.GetDataAtTime(curTime);
+
+	if (curData != nullptr)
+	{
+		velZ = curData->getSpeed();
+	}
+
+	++curTime;
+	curData = nullptr;
+
+	for (; curTime <= myMaxTime; ++curTime)
+	{
+		curData = FlightData.GetDataAtTime(curTime);
+
+		if (curData != nullptr)
+		{
+			DeltaTime = ((float)curTime - (float)prevTime) / 100;
+			prevTime = curTime;
+
+			velX = velX + curData->getGlobalxAcceleration() * DeltaTime;
+			velY = velY + curData->getGlobalyAcceleration() * DeltaTime;
+			velZ = velZ + curData->getGlobalzAcceleration() * DeltaTime;
+
+			posX = posX + velX * DeltaTime;
+			posY = posY + velY * DeltaTime;
+			posZ = posZ + velZ * DeltaTime;
+
+			curData->setGlobalxPosition(posX);
+			curData->setGlobalyPosition(posY);
+			curData->setGlobalzPosition(posZ);
+		}
+		curData = nullptr;
+	}
+
+
+}
+
 
 void ARocketActor::SetSimTime(float Time)
 {
@@ -56,9 +133,12 @@ void ARocketActor::UpdatePosAndRotation()
 
 	if (curData != nullptr)
 	{
-		FRotator newRotation = FRotator(curData->getPitch(), curData->getRoll(), curData->getYaw());
+		FRotator newRotation = FRotator(curData->getPitch(), curData->getRoll(), curData->getYaw()); //Pitch, Yaw, Roll, roll and yaw are swapped because of the orientation of the rocket
+		FVector newPos = FVector(curData->getGlobalzPosition() * 100, curData->getGlobalyPosition() * 100, curData->getGlobalxPosition() * 100);
+
 
 		this->SetActorRotation(newRotation);
+		this->SetActorLocation(newPos);
 	}
 
 
@@ -87,6 +167,8 @@ void ARocketActor::BeginPlay()
 	SpeedMultiplier = 1;
 	FlightData.LoadList(inputStream);
 	maxTime = FlightData.getMaxTime()/100;
+	TransformAccelerationData();
+	ComputeGlobalPos();
 }
 
 // Called every frame

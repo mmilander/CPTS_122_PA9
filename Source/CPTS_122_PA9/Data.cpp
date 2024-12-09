@@ -16,6 +16,13 @@ Data::Data() {
 	roll = 0.0;
 	pitch = 0.0;
 	yaw = 0.0;
+	globalxAcceleration = 0.0;
+	globalyAcceleration = 0.0;
+	globalzAcceleration = 0.0;
+	globalxPosition = 0.0;
+	globalyPosition = 0.0;
+	globalzPosition = 0.0;
+
 }
 
 void Data::setState(int var) {
@@ -70,6 +77,27 @@ void Data::setLatitude(float var) {
 void Data::setLongitude(float var) {
 	longitude = var;
 }
+void Data::setGlobalxAcceleration(float var) {
+	globalxAcceleration = var;
+}
+void Data::setGlobalyAcceleration(float var) {
+	globalyAcceleration = var;
+}
+void Data::setGlobalzAcceleration(float var) {
+	globalzAcceleration = var;
+}
+void Data::setGlobalxPosition(float var) {
+	globalxPosition = var;
+}
+void Data::setGlobalyPosition(float var) {
+	globalyPosition = var;
+}
+void Data::setGlobalzPosition(float var) {
+	globalzPosition = var;
+}
+
+
+
 
 int Data::getState() {
 	return  stateNum;
@@ -122,3 +150,22 @@ float Data::getLatitude() {
 float Data::getLongitude() {
 	return longitude;
 }
+float Data::getGlobalxAcceleration() {
+	return globalxAcceleration;
+}
+float Data::getGlobalyAcceleration() {
+	return globalyAcceleration;
+}
+float Data::getGlobalzAcceleration() {
+	return globalzAcceleration;
+}
+float Data::getGlobalxPosition() {
+	return globalxPosition;
+}
+float Data::getGlobalyPosition() {
+	return globalyPosition;
+}
+float Data::getGlobalzPosition() {
+	return globalzPosition;
+}
+

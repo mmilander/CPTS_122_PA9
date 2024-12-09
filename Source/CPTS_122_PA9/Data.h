@@ -36,6 +36,13 @@ private:
 	float yaw; //V
 	float latitude;
 	float longitude;
+	float globalxAcceleration;
+	float globalyAcceleration;
+	float globalzAcceleration;
+	float globalxPosition;
+	float globalyPosition;
+	float globalzPosition;
+
 
 public:
 	Data();
@@ -56,6 +63,14 @@ public:
 	void setYaw(float var);
 	void setLatitude(float var);
 	void setLongitude(float var);
+	void setGlobalxAcceleration(float var);
+	void setGlobalyAcceleration(float var);
+	void setGlobalzAcceleration(float var);
+	void setGlobalxPosition(float var);
+	void setGlobalyPosition(float var);
+	void setGlobalzPosition(float var);
+
+
 
 	int getState();
 	float getTime();
@@ -74,10 +89,11 @@ public:
 	float getYaw();
 	float getLatitude();
 	float getLongitude();
-
-
-
-
-
+	float getGlobalxAcceleration();
+	float getGlobalyAcceleration();
+	float getGlobalzAcceleration();
+	float getGlobalxPosition();
+	float getGlobalyPosition();
+	float getGlobalzPosition();
 };
 
