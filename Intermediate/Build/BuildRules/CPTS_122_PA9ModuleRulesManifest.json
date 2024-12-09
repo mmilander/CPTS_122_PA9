@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\Users\\mmila\\Desktop\\CPTS_122_PA9\\Source\\CPTS_122_PA9\\CPTS_122_PA9.Build.cs",
-		"C:\\Users\\mmila\\Desktop\\CPTS_122_PA9\\Source\\CPTS_122_PA9.Target.cs",
-		"C:\\Users\\mmila\\Desktop\\CPTS_122_PA9\\Source\\CPTS_122_PA9Editor.Target.cs"
+		"C:\\Users\\mmila\\Desktop\\CPTS_122_PA9-master\\CPTS_122_PA9-master\\Source\\CPTS_122_PA9\\CPTS_122_PA9.Build.cs",
+		"C:\\Users\\mmila\\Desktop\\CPTS_122_PA9-master\\CPTS_122_PA9-master\\Source\\CPTS_122_PA9.Target.cs",
+		"C:\\Users\\mmila\\Desktop\\CPTS_122_PA9-master\\CPTS_122_PA9-master\\Source\\CPTS_122_PA9Editor.Target.cs"
 	],
 	"EngineVersion": "5.4.4"
 }
