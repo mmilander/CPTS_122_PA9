@@ -1,7 +1,7 @@
 CPTS_122_PA9, December, 2024
 #   *Flight Data Playback Simulator 5000<sup>©</sup>*
 
-| Name | Lab Section |
+| Authors | Lab Section |
 | ----------- | ----------- |
 | Charles Ludwig | #8 |
 | Mitchell Milander | #4 |
