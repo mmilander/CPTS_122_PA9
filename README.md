@@ -31,4 +31,3 @@ CPTS_122_PA9, December, 2024
 | *Cameras* | Allows user to track rocket mid-air flight. |
 | Early Stages: Program in Action| ![Early Stages: Program in Action](https://github.com/user-attachments/assets/a252b76d-af58-4506-815f-79f09ee551b0)|
 | Final Product: | ![pic](https://github.com/user-attachments/assets/4941ec4e-2439-49b3-b928-e79ce2593cd7) |
-| YouTube Demo Video: | https://youtu.be/cEyuoJqQI1I |
